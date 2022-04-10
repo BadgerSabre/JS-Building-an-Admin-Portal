@@ -25,4 +25,20 @@ function renderBook(book) {
     `
 }
 
+async function logBook(){
+    let updateResponse = await fetch('http://localhost:3001/updateBook', {
+        method: 'PATCH',
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify({
+            'id': 3,
+            'title': "Legends of Arathrae",
+        }),
+    });
+let updateBook = await updateResponse.json()
+console.log(updateBook)
+}
+
+
 main()
